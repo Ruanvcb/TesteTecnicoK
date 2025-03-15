@@ -1,0 +1,17 @@
+[
+  {
+    "Id": 1,
+    "Nome": "NVIDIA",
+    "ValorDaAcao": 165.00
+  },
+  {
+    "Id": 2,
+    "Nome": "AMD",
+    "ValorDaAcao": 126.50
+  },
+  {
+    "Id": 3,
+    "Nome": "RGE",
+    "ValorDaAcao": 47.25
+  }
+]

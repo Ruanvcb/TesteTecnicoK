@@ -1,0 +1,20 @@
+[
+  {
+    "Id": 1,
+    "Descricao": "Aumento no Mercado de IA",
+    "EmpresaAfetadaId": 1,
+    "Porcentagem": 17.0
+  },
+  {
+    "Id": 2,
+    "Descricao": "Falta de Chips para EVGA",
+    "EmpresaAfetadaId": 2,
+    "Porcentagem": -43.0
+  },
+  {
+    "Id": 3,
+    "Descricao": "Investimento em Energia Solar",
+    "EmpresaAfetadaId": 3,
+    "Porcentagem": 24.0
+  }
+]
