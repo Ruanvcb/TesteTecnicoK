@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
+//Anotações referente ao Teste esstão no Notion - Estudo.
+
 class Program
 {
     static void Main(string[] args)
