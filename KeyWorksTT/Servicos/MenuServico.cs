@@ -3,18 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using KeyWorksTT.Servicos;
+using Ruan_Barbosa_TT.Servicos;
 
 public class MenuServico
 {
     public void DisplayHeader(DataServico dataServico) 
     {
+
         Console.WriteLine("=== BOLSA DE VALORES ===");
         Console.WriteLine("Empresas e Valores Atuais:");
-        foreach (var empresa in dataServico.Empresas)
-            Console.WriteLine($"{empresa.Nome} - Preço: {empresa.ValorDaAcao:C}");
+        Console.WriteLine();
 
-        Console.WriteLine("\nSeu Portifólio de Ações:");
+        foreach (var empresa in dataServico.Empresas)
+        { 
+            Console.WriteLine($"{empresa.Nome} - Setor de: {empresa.Setor}");
+            Console.WriteLine($" Preço: {empresa.ValorDaAcao:C}");
+            Console.WriteLine($" Decricao: {empresa.Descricao}");
+            Console.WriteLine();
+            Console.WriteLine();
+        }
+        
+        Console.WriteLine("\nSeu Portfólio de Ações:");
         foreach (var item in dataServico.UserData.Portfolio)
         {
             var empresa = dataServico.Empresas.Find(c => c.Id == item.EmpresaId);
@@ -28,7 +37,7 @@ public class MenuServico
             valorTotal += item.Quantidade * empresa.ValorDaAcao;
         }
         Console.WriteLine($"\nSaldo Disponível de: {dataServico.UserData.Carteira:C}");
-        Console.WriteLine($"Valor total da sua Carteira de Ações: {valorTotal:C}\n");
+        Console.WriteLine($"Valor Inicial total da sua Carteira de Ações: {valorTotal:C}\n");
     }
 
     public void DisplayMenu()
@@ -41,6 +50,7 @@ public class MenuServico
         Console.WriteLine("5. Carregar Progresso");
         Console.WriteLine("6. Sair");
         Console.Write("Escolha uma opção: ");
+        Console.WriteLine();
     }
 
     public void ComprarAcao(DataServico dataServico)
@@ -64,10 +74,10 @@ public class MenuServico
                     else
                         dataServico.UserData.Portfolio.Add(new PortfolioItem { EmpresaId = empresa.Id, Quantidade = quantidade });
                     dataServico.UserData.Carteira -= custo; //isso atualiza o saldo depois de comprar as açõess
-                    Console.WriteLine("Compra de Açõees realizada com sucesso!");
+                    Console.WriteLine("Compra de Ações realizada com sucesso!");
                 }
                 else
-                    Console.WriteLine("Saldo insuficiente para comprar Ações! Perdeu tudo no tigrinho.");
+                    Console.WriteLine("Saldo insuficiente para a compra Ações!");
             }
             else
                 Console.WriteLine("Quantidade de Ações Inválidad!");
@@ -116,25 +126,36 @@ public class MenuServico
 
     public void AplicarEvento(DataServico dataServico)
     {
-        if(dataServico.Eventos.Count == 0)
+        if (dataServico.Eventos.Count == 0)
         {
             Console.WriteLine("Não há eventos que afetem o Mercado no momento.");
             return;
         }
 
-        var random = new Random(); //travei 1 hora só nisso
-        var eventos = dataServico.Eventos[random.Next(dataServico.Eventos.Count)];
-        var empresa = dataServico.Empresas.Find(c => c.Id == eventos.EmpresaAfetadaId);
-        if (empresa == null)
+        var random = new Random();
+        var eventosValidos = dataServico.Eventos.Where(e => dataServico.Empresas.Any(emp => emp.Id == e.EmpresaAfetadaId)).ToList();
+
+        //Antes dava a mensagem que não foi encotrada a empresa pra aplicar o evento
+        //pq havia a duplicidade dos Id'ss
+
+        if (eventosValidos.Count == 0)
         {
-            Console.WriteLine("Empresa afetada pelo evento não encontrada.");
+            Console.WriteLine("Nenhum evento foi aplicado, pois nenhuma empresa correspondente foi encontrada.");
             return;
         }
 
-        decimal precoAntigo = empresa.ValorDaAcao;
-        empresa.ValorDaAcao *= (1 + eventos.Porcentagem / 100);
-        Console.WriteLine($"O Evento Aplicado foi: {eventos.Descricao}");
-        Console.WriteLine($"Novo preço da Ação da empresa: {empresa.Nome}: {empresa.ValorDaAcao:C}");//Se não tiver o C ele adiciona casas decimais
-    }
+        var evento = eventosValidos[random.Next(eventosValidos.Count)];
+        var empresa = dataServico.Empresas.Find(c => c.Id == evento.EmpresaAfetadaId);
 
+        decimal precoAntigo = empresa.ValorDaAcao;
+        empresa.ValorDaAcao *= (1 + evento.Porcentagem / 100);
+
+        Console.WriteLine($"O Evento Aplicado foi: {evento.Titulo}");
+        Console.WriteLine();
+        Console.WriteLine($"Descrição: {evento.Descricao}");
+        Console.WriteLine();
+        Console.WriteLine($"{empresa.Nome} alterou o valor de {precoAntigo:C} para {empresa.ValorDaAcao:C}");
+        Console.WriteLine();
+    }
+    
 }

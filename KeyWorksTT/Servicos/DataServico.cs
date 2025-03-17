@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.Json;
-using KeyWorksTT.Servicos;
+using Ruan_Barbosa_TT.Servicos;
 
 public class DataServico
 {
@@ -29,15 +28,19 @@ public class DataServico
     {
         try
         {
+            // Carrega as empresas
             if (!File.Exists(ArquivoEmpresa))
-                throw new FileNotFoundException("Arquivo Empresa.json não foi encontrado!");
+                throw new FileNotFoundException($"Arquivo {ArquivoEmpresa} não foi encontrado!");
             string empresaJson = File.ReadAllText(ArquivoEmpresa);
-            Empresas = JsonSerializer.Deserialize<List<Empresa>>(empresaJson);
+            Empresas = JsonSerializer.Deserialize<List<Empresa>>(empresaJson) ?? new List<Empresa>();
 
+            // Carrega os eventos de mercado, corrige o erro de ID duplicado "empresa não encontrada"
             if (!File.Exists(ArquivoEvento))
-                throw new FileNotFoundException("Arquivo Evento.json não foi encontrado!");
+                throw new FileNotFoundException($"Arquivo {ArquivoEvento} não foi encontrado!");
             string eventoJson = File.ReadAllText(ArquivoEvento);
-            Eventos = JsonSerializer.Deserialize<List<Evento>>(eventoJson);
+            var eventosCarregados = JsonSerializer.Deserialize<List<Evento>>(eventoJson) ?? new List<Evento>();
+
+            Eventos = CorrigirIdsDuplicados(eventosCarregados);
         }
         catch (FileNotFoundException ex)
         {
@@ -46,22 +49,55 @@ public class DataServico
         }
     }
 
+    private List<Evento> CorrigirIdsDuplicados(List<Evento> eventos)
+    {
+        //peguei essa lógica de um código da fercien
+        //assim eu verifico primeiro se o id já existe na lista deeventos
+        HashSet<int> idsExistentes = new HashSet<int>(eventos.Select(e => e.Id));
+
+        foreach (var evento in eventos)
+        {
+            while (idsExistentes.Contains(evento.Id))
+            {
+                evento.Id = GerarNovoIdUnico(idsExistentes);
+            }
+            idsExistentes.Add(evento.Id);
+        }
+        return eventos;
+    }
+
+    private int GerarNovoIdUnico(HashSet<int> idsExistentes)
+    {
+        Random random = new Random();
+        int novoId;
+        do
+        {
+            novoId = random.Next(1000, 9999); // Gera um ID dentro desse intervalo de ID's 
+        } while (idsExistentes.Contains(novoId));
+        return novoId;
+    }
+
     private void LoadUserData()
     {
         if (File.Exists(SaveFilePath))
         {
             string json = File.ReadAllText(SaveFilePath);
             var savedState = JsonSerializer.Deserialize<SavedState>(json);
-            UserData = savedState.User;
+            UserData = savedState?.User ?? new UserData { Carteira = 10000.00m, 
+                                                          Portfolio = new List<PortfolioItem>() };
 
-            foreach (var valorSalvo in savedState.Empresas)
+            if (savedState?.Empresas != null)
             {
-                var empresas = Empresas.Find(c => c.Id == valorSalvo.Id);
-                if (empresas != null)
-                    empresas.ValorDaAcao = valorSalvo.ValorDaAcao;
+                foreach (var valorSalvo in savedState.Empresas)
+                {
+                    var empresa = Empresas.Find(c => c.Id == valorSalvo.Id);
+                    if (empresa != null)
+                        empresa.ValorDaAcao = valorSalvo.ValorDaAcao;
+                }
             }
         }
-        else {
+        else
+        {
             UserData = new UserData { Carteira = 10000.00m, Portfolio = new List<PortfolioItem>() };
         }
     }

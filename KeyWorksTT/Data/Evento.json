@@ -1,20 +1,163 @@
 [
   {
     "Id": 1,
+    "Titulo": "Título Genérico",
     "Descricao": "Aumento no Mercado de IA",
     "EmpresaAfetadaId": 1,
     "Porcentagem": 17.0
   },
   {
     "Id": 2,
+    "Titulo": "Título Genérico",
     "Descricao": "Falta de Chips para EVGA",
     "EmpresaAfetadaId": 2,
     "Porcentagem": -43.0
   },
   {
     "Id": 3,
+    "Titulo": "Título Genérico",
     "Descricao": "Investimento em Energia Solar",
     "EmpresaAfetadaId": 3,
     "Porcentagem": 24.0
+  },
+  {
+    "Id": 4,
+    "Titulo": "NeuroSoft anuncia parceria com universidade",
+    "Descricao": "NeuroSoft firma parceria com uma das maiores universidades do mundo para impulsionar pesquisas em IA.",
+    "EmpresaAfetadaId": 4,
+    "Porcentagem": 8
+  },
+  {
+    "Id": 5,
+    "Titulo": "Solaris Energy inaugura nova usina solar",
+    "Descricao": "Nova usina solar da Solaris Energy entra em operação, aumentando a capacidade de geração de energia renovável.",
+    "EmpresaAfetadaId": 5,
+    "Porcentagem": 6
+  },
+  {
+    "Id": 6,
+    "Titulo": "QuantumDrive apresenta novo carro autônomo",
+    "Descricao": "QuantumDrive revela um novo modelo de veículo elétrico autônomo com autonomia recorde e tecnologia aprimorada.",
+    "EmpresaAfetadaId": 6,
+    "Porcentagem": 9
+  },
+  {
+    "Id": 7,
+    "Titulo": "ByteBank lança serviço de pagamento instantâneo",
+    "Descricao": "O ByteBank revoluciona o setor financeiro com um novo sistema de transações instantâneas via blockchain.",
+    "EmpresaAfetadaId": 7,
+    "Porcentagem": 7
+  },
+  {
+    "Id": 8,
+    "Titulo": "MedTech Solutions desenvolve IA para diagnósticos",
+    "Descricao": "MedTech Solutions lança um novo software de inteligência artificial capaz de detectar doenças com precisão recorde.",
+    "EmpresaAfetadaId": 8,
+    "Porcentagem": 10
+  },
+  {
+    "Id": 9,
+    "Titulo": "EcoVolt fecha fábrica devido a crise",
+    "Descricao": "A EcoVolt anuncia o fechamento de uma de suas fábricas devido à escassez de materiais para produção.",
+    "EmpresaAfetadaId": 9,
+    "Porcentagem": -5
+  },
+  {
+    "Id": 7,
+    "Titulo": "ByteBank sofre ataque cibernético",
+    "Descricao": "Um ataque hacker compromete dados de milhares de clientes do ByteBank, gerando desconfiança no mercado.",
+    "EmpresaAfetadaId": 10,
+    "Porcentagem": -8
+  },
+  {
+    "Id": 8,
+    "Titulo": "MedTech Solutions expande para novos mercados",
+    "Descricao": "A MedTech Solutions anuncia sua entrada em mercados asiáticos, aumentando sua presença global.",
+    "EmpresaAfetadaId": 11,
+    "Porcentagem": 7
+  },
+  {
+    "Id": 5,
+    "Titulo": "Solaris Energy tem problemas com regulamentação",
+    "Descricao": "Mudanças nas regulamentações ambientais atrasam projetos da Solaris Energy, afetando seus investimentos.",
+    "EmpresaAfetadaId": 12,
+    "Porcentagem": -6
+  },
+  {
+    "Id": 6,
+    "Titulo": "QuantumDrive sofre recall em veículos",
+    "Descricao": "DPorcentagem em baterias obriga a QuantumDrive a realizar um grande recall de seus carros elétricos.",
+    "EmpresaAfetadaId": 13,
+    "Porcentagem": -9
+  },
+  {
+    "Id": 4,
+    "Titulo": "NeuroSoft desenvolve IA revolucionária",
+    "Descricao": "NeuroSoft lança uma nova IA capaz de otimizar processos EmpresaAfetadaIdriais e reduzir custos operacionais.",
+    "EmpresaAfetadaId": 14,
+    "Porcentagem": 8
+  },
+  {
+    "Id": 5,
+    "Titulo": "Solaris Energy recebe investimento bilionário",
+    "Descricao": "Solaris Energy atrai investidores globais para expandir sua produção de energia limpa.",
+    "EmpresaAfetadaId": 15,
+    "Porcentagem": 7
+  },
+  {
+    "Id": 6,
+    "Titulo": "QuantumDrive estabelece parceria com grande montadora",
+    "Descricao": "QuantumDrive firma parceria com uma das maiores montadoras do mundo para produzir veículos elétricos em massa.",
+    "EmpresaAfetadaId": 16,
+    "Porcentagem": 9
+  },
+  {
+    "Id": 7,
+    "Titulo": "ByteBank revoluciona pagamentos digitais",
+    "Descricao": "O ByteBank lança um novo sistema de transações financeiras sem taxas, atraindo milhões de novos clientes.",
+    "EmpresaAfetadaId": 17,
+    "Porcentagem": 10
+  },
+  {
+    "Id": 4,
+    "Titulo": "NeuroSoft enfrenta vazamento de dados",
+    "Descricao": "Um ataque hacker expõe dados confidenciais de clientes da NeuroSoft, causando uma crise de confiança.",
+    "EmpresaAfetadaId": 18,
+    "Porcentagem": -8
+  },
+  {
+    "Id": 5,
+    "Titulo": "Solaris Energy perde contrato com governo",
+    "Descricao": "O governo decide cancelar um grande contrato com a Solaris Energy, afetando seus planos de expansão.",
+    "EmpresaAfetadaId": 19,
+    "Porcentagem": -6
+  },
+  {
+    "Id": 6,
+    "Titulo": "QuantumDrive atrasada na entrega de novos modelos",
+    "Descricao": "Problemas na cadeia de suprimentos forçam a QuantumDrive a adiar o lançamento de seu novo carro elétrico.",
+    "EmpresaAfetadaId": 20,
+    "Porcentagem": -7
+  },
+  {
+    "Id": 7,
+    "Titulo": "ByteBank sofre sanção por falhas em segurança",
+    "Descricao": "Reguladores impõem multas pesadas ao ByteBank após descobrirem vulnerabilidades em seu sistema.",
+    "EmpresaAfetadaId": 21,
+    "Porcentagem": -9
+  },
+  {
+    "Id": 8,
+    "Titulo": "MedTech Solutions tem estudo clínico reprovado",
+    "Descricao": "Um estudo promissor da MedTech Solutions falha nos testes finais, prejudicando suas expectativas de mercado.",
+    "EmpresaAfetadaId": 22,
+    "Porcentagem": -5
+  },
+  {
+    "Id": 9,
+    "Titulo": "EcoVolt enfrenta protestos ambientais",
+    "Descricao": "Grupos ambientalistas acusam a EcoVolt de impactos ecológicos em sua nova fábrica, afetando sua imagem.",
+    "EmpresaAfetadaId": 23,
+    "Porcentagem": -6
   }
 ]

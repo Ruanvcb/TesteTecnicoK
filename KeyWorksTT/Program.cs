@@ -1,10 +1,13 @@
-﻿using KeyWorksTT.Servicos;
+﻿using Ruan_Barbosa_TT.Servicos;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
-//Anotações referente ao Teste esstão no Notion - Estudo.
+//Não recebi as infos da Pasta/Data no dia do recebimento do teste,
+//Então eu "criei" algumas empresas e eventos para o /Data.
+//Quando recebi o /Data fornecido, adicionei os mesmos.
+//Tive que mudar a lógica pq agora tem mais Eventos que Empresas
 
 class Program
 {
