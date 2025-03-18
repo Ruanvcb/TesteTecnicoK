@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
+//Se ocorrer o erro de não achou o arquivo "Empresa.json", siga o passos abaixo:
+//Botao direito em "Empresa.json" -> Propriedades -> Não Copiar -> Copiar se for mais novo
+
+
 //Não recebi as infos da Pasta/Data no dia do recebimento do teste,
 //Então eu "criei" algumas empresas e eventos para o /Data.
 //Quando recebi o /Data fornecido, adicionei os mesmos.

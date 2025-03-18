@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text.Json;
 using Ruan_Barbosa_TT.Servicos;
 
+//Se ocorrer o erro de não achou o arquivo "Empresa.json", siga o passos abaixo:
+//Botao direito em "Empresa.json" -> Propriedades -> Não Copiar -> Copiar se for mais novo
 public class DataServico
 {
     private const string ArquivoEmpresa = "Data/Empresa.json";
