@@ -43,7 +43,8 @@ Passos para Executar
     bash
     Copy
 
-    git clone https://github.com/seu-usuario/simulador-bolsa-valores.git
+    git clone 
+    https://github.com/Ruanvcb/TesteTecnicoK.git
 
     Navegue até a pasta do projeto:
     bash
