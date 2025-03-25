@@ -48,20 +48,17 @@ Passos para Executar
 
     Clone o repositório:
     bash
-    Copy
 
     git clone 
     https://github.com/Ruanvcb/TesteTecnicoK.git
 
     Navegue até a pasta do projeto:
     bash
-    Copy
 
     cd simulador-bolsa-valores
 
     Compile e execute o projeto:
     bash
-    Copy
 
     dotnet run
 
