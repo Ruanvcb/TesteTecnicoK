@@ -89,35 +89,6 @@ Passos para Executar
 
         Podem ser positivos ou negativos
 
-📄 Arquivos de Configuração
-Empresas.json
-
-Contém a lista de empresas e os preços iniciais das ações. 
-Exemplo: Arquivo json
-[
-  {
-    "Id": 1,
-    "Nome": "NVIDIA",
-    "Setor": "Tecnologia",
-    "ValorDaAcao": 165.00,
-    "Descricao": "Líder em placas de vídeo e IA"
-  }
-]
-
-Eventos.json
-
-Contém os eventos de mercado que afetam os preços das ações.
-Exemplo: Arquivo json
-[
-  {
-    "Id": 1,
-    "Titulo": "NVIDIA lança novo chip",
-    "Descricao": "Novo chip revoluciona mercado de IA",
-    "EmpresaAfetadaId": 1,
-    "Porcentagem": 10
-  }
-]
-
 ⚙️ Configuração Importante
 
 Se ocorrer erro de arquivo não encontrado:
