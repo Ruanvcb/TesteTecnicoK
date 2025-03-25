@@ -1,17 +1,23 @@
 📈 Simulador de Bolsa de Valores em C#
 
 Este é um simulador de bolsa de valores desenvolvido em C# como um desafio técnico. O programa permite que os usuários comprem e vendam ações de empresas fictícias, apliquem eventos de mercado que afetam os preços das ações e salvem/carreguem seu progresso.
+
 🚀 Funcionalidades:
 
-    Compra e venda de ações: Compre e venda ações de empresas fictícias.
+    Compra e venda de ações de empresas fictícias
 
-    Eventos de mercado: Eventos aleatórios que afetam os preços das ações.
+    Eventos de mercado aleatórios que impactam os preços
 
-    Salvar e carregar progresso: Salve seu progresso em um arquivo JSON e continue de onde parou.
+    Salvar e carregar progresso em arquivo JSON
 
-    Interface de console: Menu interativo para facilitar a navegação.
+    Portfólio com acompanhamento de investimentos
 
-    Logs de transações: Todas as compras, vendas e eventos são registrados em um arquivo de log.
+    Sistema de logs para registro de transações
+
+Pré-requisitos:
+
+    .NET 6.0 ou superior
+
 
     BolsaDeValores/
     ├── Data/
@@ -30,8 +36,9 @@ Este é um simulador de bolsa de valores desenvolvido em C# como um desafio téc
     │   └── MenuService.cs         # Gerencia a exibição do menu e as operações do usuário
     └── Program.cs                 # Ponto de entrada da aplicação
 
-    🛠️ Como Executar o Projeto
-Pré-requisitos
+🛠️ Como Executar o Projeto
+
+    Pré-requisitos
 
     .NET SDK instalado.
 
@@ -59,82 +66,84 @@ Passos para Executar
     dotnet run
 
 📝 Como Usar
-
     Menu Principal:
 
-        O menu exibe o saldo do usuário, o portfólio de ações e o valor total do patrimônio.
+        Visualize empresas, seus setores e preços atuais
 
-        Escolha uma opção digitando o número correspondente.
+        Acompanhe seu portfólio e saldo
 
-    Comprar Ações:
+    Opções:
 
-        Selecione uma empresa da lista.
+        1: Comprar ações
 
-        Informe a quantidade de ações que deseja comprar.
+        2: Vender ações
 
-        O valor será debitado do seu saldo.
+        3: Aplicar evento de mercado aleatório
 
-    Vender Ações:
+        4: Salvar progresso
 
-        Selecione uma empresa da lista de ações que você possui.
+        5: Carregar progresso
 
-        Informe a quantidade de ações que deseja vender.
+        6: Sair
 
-        O valor será creditado no seu saldo.
+    Eventos de Mercado:
 
-    Aplicar Evento de Mercado:
+        Impactam aleatoriamente os preços das ações
 
-        Um evento aleatório será aplicado, alterando o preço das ações de uma empresa.
-
-    Salvar Progresso:
-
-        Salva o estado atual (preços das ações, saldo e portfólio) em um arquivo JSON.
-
-    Carregar Progresso:
-
-        Carrega o estado salvo anteriormente.
-
-    Sair:
-
-        Encerra a aplicação.
+        Podem ser positivos ou negativos
 
 📄 Arquivos de Configuração
 Empresas.json
 
-Contém a lista de empresas e os preços iniciais das ações. Exemplo:
-json
-Copy
-
+Contém a lista de empresas e os preços iniciais das ações. 
+Exemplo: Arquivo json
 [
   {
     "Id": 1,
     "Nome": "NVIDIA",
-    "ValorDaAcao": 165.00
-  },
+    "Setor": "Tecnologia",
+    "ValorDaAcao": 165.00,
+    "Descricao": "Líder em placas de vídeo e IA"
+  }
 ]
 
 Eventos.json
 
-Contém os eventos de mercado que afetam os preços das ações. Exemplo:
-json
-Copy
-
+Contém os eventos de mercado que afetam os preços das ações.
+Exemplo: Arquivo json
 [
   {
     "Id": 1,
-    "Descricao": "Aumento no Mercado de IA",
+    "Titulo": "NVIDIA lança novo chip",
+    "Descricao": "Novo chip revoluciona mercado de IA",
     "EmpresaAfetadaId": 1,
-    "Porcentagem": 17.0
-  },
+    "Porcentagem": 10
+  }
 ]
+
+⚙️ Configuração Importante
+
+Se ocorrer erro de arquivo não encontrado:
+
+    Clique com o botão direito em Empresa.json ou Evento.json
+
+    Selecione "Propriedades"
+
+    Defina "Copiar para Diretório de Saída" como "Copiar se for mais novo"
+
+🐛 Solução de Problemas
+
+    "Empresa não encontrada para evento": Verifique se os IDs em Evento.json correspondem aos IDs em Empresa.json
+
+    IDs duplicados: O sistema automaticamente gera novos IDs únicos para eventos
 
 📜 Logs
 
-Todas as transações (compras, vendas) e eventos de mercado são registrados no arquivo Logs/transactions.log. Exemplo:
-Copy
+Todas as transações (compras, vendas) e eventos de mercado são registrados no arquivo Logs/transactions.log. 
+Exemplo:
 
-2023-10-01 14:30:45 - Compra de 10 ações da TechCorp por R$1,000.00
-2023-10-01 14:35:12 - Evento 'Aumento na demanda por tecnologia' aplicado. TechCorp alterou de R$100.00 para R$110.00
+    2023-10-01 14:30:45 - Compra de 10 ações da TechCorp por R$1,000.00
+    2023-10-01 14:35:12 - Evento 'Aumento na demanda por tecnologia' aplicado. TechCorp alterou de R$100.00 para R$110.00
 
 🛑 Considerações Finais
 
@@ -144,9 +153,25 @@ Copy
 
     O arquivo transactions.log é criado automaticamente para registrar todas as transações.
 
+
+📊 Exemplo de Saída
+
+    === BOLSA DE VALORES ===
+    Empresas e Valores Atuais:
+    
+    NVIDIA - Setor de: Tecnologia
+     Preço: R$ 165,00
+     Descrição: Líder em placas de vídeo e IA
+    
+    Seu Portfólio:
+    NVIDIA - Quantidade: 10
+    
+    Saldo Disponível: R$ 8.350,00
+    Valor Total: R$ 9.850,00
+
+
 👨‍💻 Autor
 
 Ruan Vagner Cardozo Barbosa
-📄 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
