@@ -110,7 +110,7 @@ Se ocorrer erro de arquivo não encontrado:
 Todas as transações (compras, vendas) e eventos de mercado são registrados no arquivo Logs/transactions.log. 
 Exemplo:
 
-    2023-10-01 14:30:45 - Compra de 10 ações da TechCorp por R$1,000.00
+    2023-10-01 14:30:45 - Compra de 10 ações da TechCorp por R$100.00
     2023-10-01 14:35:12 - Evento 'Aumento na demanda por tecnologia' aplicado. TechCorp alterou de R$100.00 para R$110.00
 
 🛑 Considerações Finais
